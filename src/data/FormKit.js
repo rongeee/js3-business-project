@@ -58,28 +58,25 @@ export default class {
   validateInputs = (item, setState, form) => {
     switch (form) {
       case "customer":
-        {
-          if (!item.name) {
-            setState(`Name must be filled`);
-            return false;
-          } else if (item.vatNr && !this.checkVatInput(item.vatNr.toUpperCase())) {
-            setState("Vat Nr must start with SE and have 10 numbers.");
-            return false;
-          } else if (!item.reference) {
-            setState(`Reference must be filled`);
-            return false;
-          } else if (!item.paymentTerm || isNaN(item.paymentTerm)) {
-            setState(`Payment Term must be filled and only include numbers.`);
-            return false;
-          } else if (!item.email || !this.checkValidEmail(item.email)) {
-            setState(`Please enter a valid e-mail adress.`);
-            return false;
-          } else {
-            setState(null);
-            return true;
-          }
+        if (!item.name) {
+          setState(`Name must be filled`);
+          return false;
+        } else if (item.vatNr && !this.checkVatInput(item.vatNr.toUpperCase())) {
+          setState("Vat Nr must start with SE and have 10 numbers.");
+          return false;
+        } else if (!item.reference) {
+          setState(`Reference must be filled`);
+          return false;
+        } else if (!item.paymentTerm || isNaN(item.paymentTerm)) {
+          setState(`Payment Term must be filled and only include numbers.`);
+          return false;
+        } else if (!item.email || !this.checkValidEmail(item.email)) {
+          setState(`Please enter a valid e-mail adress.`);
+          return false;
+        } else {
+          setState(null);
+          return true;
         }
-        break;
 
       case "user":
         if (!item.firstName) {
@@ -101,6 +98,7 @@ export default class {
           setState(null);
           return true;
         }
+      default:
     }
 
     // case "addCustomer":

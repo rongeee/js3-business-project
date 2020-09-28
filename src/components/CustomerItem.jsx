@@ -1,13 +1,11 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const CustomerItem = ({ customer }) => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <>
-      <ListItem onClick={() => setExpanded((prevState) => !prevState)}>
+      <ListItem>
         <p>{customer.name}</p>
         <p>{customer.organisationNr ? customer.organisationNr : "N/A"}</p>
         <p>{customer.reference ? customer.reference : "N/A"}</p>

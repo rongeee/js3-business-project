@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import CustomerList from "../components/CustomerList";
-import styled from "styled-components";
 import { Btn, WrapperAlignStart, Headline } from "../style/Components";
-import { CustomerContext } from "../contexts/BusinessContext";
 
 const HomePage = () => {
   return (
