@@ -1,13 +1,14 @@
 import React from "react";
 import ProductDetails from "../components/ProductDetails";
+import { WrapperAlignStart } from "../style/Components";
 
 const CustomerDetailPage = (props) => {
   const customerId = props.match.params.id;
 
   return (
-    <div>
+    <WrapperAlignStart>
       <ProductDetails id={customerId} />
-    </div>
+    </WrapperAlignStart>
   );
 };
 

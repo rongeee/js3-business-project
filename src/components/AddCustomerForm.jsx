@@ -25,9 +25,9 @@ const AddCustomerForm = () => {
   };
 
   const handleClick = () => {
-    formKit.validateInputs(customer, setErrorMsg);
+    formKit.validateInputs(customer, setErrorMsg, "customer");
 
-    if (formKit.validateInputs(customer, setErrorMsg)) {
+    if (formKit.validateInputs(customer, setErrorMsg, "customer")) {
       return userKit
         .addCustomer(customer)
         .then(() => {

@@ -21,8 +21,4 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.25s linear;
     background-repeat: no-repeat;
   }
-
-  main {
-    padding-top: 100px;
-  }
   `;

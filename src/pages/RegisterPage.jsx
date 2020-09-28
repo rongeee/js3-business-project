@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import RegisterForm from "../components/RegisterForm";
 import styled from "styled-components";
-import { Wrapper } from "../style/Components";
+import { WrapperAlignStart } from "../style/Components";
 
 const RegisterPage = () => {
+  const [registered, setRegistered] = useState(false);
+
   return (
-    <Wrap>
-      <RegisterHeadline>Register</RegisterHeadline>
-      <RegisterForm />
-    </Wrap>
+    <WrapperAlignStart>
+      {!registered && <RegisterHeadline>Register</RegisterHeadline>}
+      {!registered ? <RegisterForm setRegistered={setRegistered} /> : <h2>Successfully Registered! Check your E-Mail!</h2>}
+    </WrapperAlignStart>
   );
 };
 
 export default RegisterPage;
 
-const RegisterHeadline = styled.h2``;
-
-const Wrap = styled(Wrapper)`
-  flex-direction: column;
+const RegisterHeadline = styled.h2`
+  align-self: start;
 `;

@@ -2,25 +2,19 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CustomerList from "../components/CustomerList";
 import styled from "styled-components";
-import { Btn, Wrapper, Headline } from "../style/Components";
+import { Btn, WrapperAlignStart, Headline } from "../style/Components";
 import { CustomerContext } from "../contexts/BusinessContext";
 
 const HomePage = () => {
   return (
-    <Wrap>
+    <WrapperAlignStart>
       <Headline>Customers</Headline>
       <CustomerList />
       <Link to={`/addcustomer`}>
         <Btn>Add Customer</Btn>
       </Link>
-    </Wrap>
+    </WrapperAlignStart>
   );
 };
 
 export default HomePage;
-
-const Wrap = styled(Wrapper)`
-  flex-direction: column;
-  align-self: flex-start;
-  justify-content: flex-start;
-`;

@@ -6,10 +6,12 @@ import { Btn } from "../style/Components";
 const SignOutBtn = () => {
   const history = useHistory();
   const setCurrentUser = useContext(UserContext).setCurrentUser;
+  const setToken = useContext(UserContext).setToken;
 
   const handleClick = () => {
     localStorage.clear();
     setCurrentUser(null);
+    setToken(null);
     history.push("/");
   };
 

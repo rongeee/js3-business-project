@@ -22,7 +22,7 @@ export const Btn = styled.button`
 `;
 
 export const FormContainer = styled.div`
-  background: ${(props) => props.theme.body};
+  background: ${(props) => props.theme.bodyDarker};
   border: 1px solid ${(props) => props.theme.border};
   padding: 1em;
   width: 100%;
@@ -30,6 +30,8 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+
+  max-width: 1400px;
 `;
 
 export const FormInput = styled.div`
@@ -47,6 +49,13 @@ export const Wrapper = styled.section`
   align-items: center;
   min-height: 100vh;
   gap: 1em;
+`;
+
+export const WrapperAlignStart = styled(Wrapper)`
+  flex-direction: column;
+  max-width: 900px;
+  justify-content: flex-start;
+  padding-top: 100px;
 `;
 
 export const Headline = styled.h2`

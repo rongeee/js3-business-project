@@ -64,7 +64,7 @@ const ProductDetails = ({ id }) => {
                 name={item[0]}
                 placeholder={startCase(item[0])}
                 onChange={(e) => formKit.onInputChange(e.target.value, item[0], setCurrentCustomer)}
-                value={currentCustomer[key]}
+                value={currentCustomer[key] ? currentCustomer[key] : undefined}
               />
             </FormInput>
           );
@@ -75,8 +75,8 @@ const ProductDetails = ({ id }) => {
   };
 
   const updateCustomer = (customer) => {
-    formKit.validateInputs(customer, setErrorMsg);
-    if (formKit.validateInputs(customer, setErrorMsg)) {
+    formKit.validateInputs(customer, setErrorMsg, "customer");
+    if (formKit.validateInputs(customer, setErrorMsg, "customer")) {
       return userKit
         .updateCustomer(id, customer)
         .then(setIsEditing((prevState) => !prevState))
@@ -91,7 +91,7 @@ const ProductDetails = ({ id }) => {
   return (
     <FormContainer>
       {errorMsg && <p>{errorMsg}</p>}
-      {currentCustomer && <h2>ID {currentCustomer.id}</h2>}
+      {isEditing ? <h2>Edit Customer Details</h2> : <h2>Customer Details</h2>}
       {currentCustomer && !isEditing ? renderCustomer() : renderEditCustomer()}
     </FormContainer>
   );

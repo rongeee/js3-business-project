@@ -1,21 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 import AddCustomerForm from "../components/AddCustomerForm";
-import { Wrapper, Headline } from "../style/Components";
+import { WrapperAlignStart, Headline } from "../style/Components";
 
 const AddCustomerPage = () => {
   return (
-    <Wrap>
+    <WrapperAlignStart>
       <Headline>Add Customer</Headline>
       <AddCustomerForm />
-    </Wrap>
+    </WrapperAlignStart>
   );
 };
 
 export default AddCustomerPage;
-
-const Wrap = styled(Wrapper)`
-  flex-direction: column;
-  max-width: 900px;
-  justify-content: flex-start;
-`;

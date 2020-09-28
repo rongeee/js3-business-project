@@ -1,50 +1,43 @@
 import React, { useState } from "react";
 import UserKit from "../data/UserKit";
-import styled from "styled-components";
+import { startCase } from "lodash";
 import { Btn, FormContainer, FormInput } from "../style/Components";
+import FormKit from "../data/FormKit";
 
-const RegisterForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [organisationName, setOrganisationName] = useState("");
-  const [organisationKind, setOrganisationKind] = useState("");
+const RegisterForm = ({ setRegistered }) => {
+  const [user, setUser] = useState({});
+  const [errorMsg, setErrorMsg] = useState(null);
   const userKit = new UserKit();
+  const formKit = new FormKit();
 
   const handleRegister = () => {
-    userKit
-      .register(firstName, lastName, email, password, organisationName, organisationKind)
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    formKit.validateInputs(user, setErrorMsg, "user");
+
+    if (formKit.validateInputs(user, setErrorMsg, "user")) {
+      userKit
+        .register(user)
+        .then((res) => res.json())
+        .then((data) => setRegistered(true));
+    }
   };
 
-  const inputObjects = [
-    ["First Name", firstName, setFirstName, "text"],
-    ["Last Name", lastName, setLastName, "text"],
-    ["Email", email, setEmail, "email"],
-    ["Password", password, setPassword, "password"],
-    ["Organisation Name", organisationName, setOrganisationName, "text"],
-    ["Organisation Kind (0,1,2)", organisationKind, setOrganisationKind, "text"],
-  ];
-
-  const renderInput = (index, placeholder, stateVariable, stateSetVariable, type) => {
-    return (
-      <FormInput key={index}>
-        <label>{placeholder}</label>
-        <input placeholder={placeholder} value={stateVariable} onChange={(e) => stateSetVariable(e.target.value)} type={type} />
-      </FormInput>
-    );
+  const renderInput = () => {
+    const data = formKit.registerFormData;
+    return data.map((item, index) => {
+      return (
+        <FormInput key={index}>
+          <label htmlFor={item[0]}>{startCase(item[0])}</label>
+          <input type={item[1]} name={item[0]} placeholder={startCase(item[0])} onChange={(e) => formKit.onInputChange(e.target.value, item[0], setUser)} />
+        </FormInput>
+      );
+    });
   };
 
   return (
     <FormContainer>
-      <p>Enter details to register</p>
-      {inputObjects &&
-        inputObjects.map((item, index) => {
-          return renderInput(index, item[0], item[1], item[2], item[3]);
-        })}
-      <Btn onClick={() => handleRegister}>Register</Btn>
+      {errorMsg && <strong>{errorMsg}</strong>}
+      {formKit.registerFormData && renderInput()}
+      <Btn onClick={() => handleRegister()}>Register</Btn>
     </FormContainer>
   );
 };

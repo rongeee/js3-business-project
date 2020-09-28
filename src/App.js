@@ -13,16 +13,18 @@ import NavBar from "./components/NavBar";
 function App() {
   const userKit = new UserKit();
   const [currentUser, setCurrentUser] = useState(null);
-  const [token, setToken] = useState(null);
   const [customers, setCustomers] = useState();
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
-    userKit
-      .getCurrentUser()
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentUser(data);
-      });
+    if (userKit.getToken()) {
+      userKit
+        .getCurrentUser()
+        .then((res) => res.json())
+        .then((data) => {
+          setCurrentUser(data);
+        });
+    }
   }, [token]);
 
   return (
