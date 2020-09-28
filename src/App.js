@@ -14,7 +14,7 @@ function App() {
   const userKit = new UserKit();
   const [currentUser, setCurrentUser] = useState(null);
   const [customers, setCustomers] = useState();
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(userKit.getToken());
 
   useEffect(() => {
     if (userKit.getToken()) {
@@ -38,7 +38,7 @@ function App() {
               <Route path="/addcustomer" component={AddCustomerPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
-              {currentUser ? <Route path="/" component={HomePage} /> : <Route path="/" component={FrontPage} />}
+              {token ? <Route path="/" component={HomePage} /> : <Route path="/" component={FrontPage} />}
             </Switch>
           </NavBar>
         </CustomerContext.Provider>
