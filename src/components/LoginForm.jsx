@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const userKit = new UserKit();
   const history = useHistory();
-  const setCurrentUser = useContext(UserContext).setCurrentUser;
+  const setToken = useContext(UserContext).setToken;
 
   const handleLogin = () => {
     userKit
@@ -17,7 +17,7 @@ const LoginForm = () => {
       .then((res) => res.json())
       .then((data) => {
         userKit.setToken(data.token);
-        setCurrentUser(data.token);
+        setToken(data.token);
         history.push("/");
       });
   };

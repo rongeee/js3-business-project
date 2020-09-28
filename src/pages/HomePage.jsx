@@ -6,8 +6,6 @@ import { Btn, Wrapper, Headline } from "../style/Components";
 import { CustomerContext } from "../contexts/BusinessContext";
 
 const HomePage = () => {
-  const customers = useContext(CustomerContext).customers;
-
   return (
     <Wrap>
       <Headline>Customers</Headline>

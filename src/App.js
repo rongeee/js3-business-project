@@ -13,22 +13,21 @@ import NavBar from "./components/NavBar";
 function App() {
   const userKit = new UserKit();
   const [currentUser, setCurrentUser] = useState(null);
+  const [token, setToken] = useState(null);
   const [customers, setCustomers] = useState();
 
   useEffect(() => {
-    if (userKit.getToken()) {
-      userKit
-        .getCurrentUser()
-        .then((res) => res.json())
-        .then((data) => {
-          setCurrentUser(data);
-        });
-    }
-  }, []);
+    userKit
+      .getCurrentUser()
+      .then((res) => res.json())
+      .then((data) => {
+        setCurrentUser(data);
+      });
+  }, [token]);
 
   return (
     <div>
-      <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+      <UserContext.Provider value={{ currentUser, setCurrentUser, setToken }}>
         <CustomerContext.Provider value={{ customers, setCustomers }}>
           <NavBar>
             <Switch>
