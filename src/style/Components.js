@@ -41,7 +41,7 @@ export const FormContainer = styled.div`
 export const FormInput = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  margin-bottom: 10px;
 `;
 
 export const Wrapper = styled.section`
