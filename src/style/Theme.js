@@ -4,4 +4,6 @@ export const theme = {
   text: "#FAFAFA",
   toggleBorder: "#6B8096",
   gradient: "linear-gradient(#091236, #1E215D)",
+  btnSuccess: "#4682B4",
+  btnSecondary: "#FF6347",
 };

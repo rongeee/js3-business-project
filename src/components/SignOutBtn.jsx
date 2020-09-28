@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../contexts/BusinessContext";
-import { Btn } from "../style/Components";
+import styled from "styled-components";
+import { BtnSecondary } from "../style/Components";
 
 const SignOutBtn = () => {
   const history = useHistory();
@@ -15,7 +16,13 @@ const SignOutBtn = () => {
     history.push("/");
   };
 
-  return <Btn onClick={() => handleClick()}>Sign Out</Btn>;
+  return <SignBtn onClick={() => handleClick()}>Sign Out</SignBtn>;
 };
 
 export default SignOutBtn;
+
+const SignBtn = styled(BtnSecondary)`
+  width: 100px;
+  height: 20px;
+  margin-left: 1em;
+`;

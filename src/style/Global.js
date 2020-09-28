@@ -21,4 +21,8 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.25s linear;
     background-repeat: no-repeat;
   }
+
+  h1 {
+    font-size: 3rem;
+  }
   `;

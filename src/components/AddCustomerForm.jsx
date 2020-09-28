@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Btn, FormContainer, FormInput } from "../style/Components";
+import { Btn, FormContainer, FormInput, CentContainer } from "../style/Components";
 import { startCase } from "lodash";
 import UserKit from "../data/UserKit";
 import FormKit from "../data/FormKit";
@@ -41,7 +41,9 @@ const AddCustomerForm = () => {
     <FormContainer>
       {errorMsg && <p>{errorMsg}</p>}
       {renderInput()}
-      <Btn onClick={() => handleClick()}>Add</Btn>
+      <CentContainer>
+        <Btn onClick={() => handleClick()}>Add</Btn>
+      </CentContainer>
     </FormContainer>
   );
 };

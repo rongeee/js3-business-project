@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Btn, Wrapper } from "../style/Components";
+import { Btn, Wrapper, BtnSecondary } from "../style/Components";
 
 const FrontPage = () => {
   return (
     <Wrapper>
+      <h1>Business Things</h1>
+
       <Link to={`/login`}>
         <Btn>Login</Btn>
       </Link>
       <Link to={`/register`}>
-        <Btn>Register</Btn>
+        <BtnSecondary>Register</BtnSecondary>
       </Link>
     </Wrapper>
   );

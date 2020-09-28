@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import UserKit from "../data/UserKit";
 import FormKit from "../data/FormKit";
-import { Btn, FormContainer, FormInput } from "../style/Components";
+import { Btn, FormContainer, FormInput, CentContainer } from "../style/Components";
 import { startCase } from "lodash";
 import DeleteCustomerButton from "./DeleteCustomerBtn";
 
-const ProductDetails = ({ id }) => {
+const CustomerDetails = ({ id }) => {
   const [currentCustomer, setCurrentCustomer] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -42,8 +42,10 @@ const ProductDetails = ({ id }) => {
             </FormInput>
           );
         })}
-        <DeleteCustomerButton id={id} />
-        <Btn onClick={() => setIsEditing((prevState) => !prevState)}>Edit Customer</Btn>
+        <CentContainer>
+          <Btn onClick={() => setIsEditing((prevState) => !prevState)}>Edit Customer</Btn>
+          <DeleteCustomerButton id={id} />
+        </CentContainer>
       </div>
     );
   };
@@ -69,7 +71,9 @@ const ProductDetails = ({ id }) => {
             </FormInput>
           );
         })}
-        <Btn onClick={() => updateCustomer(currentCustomer)}>Update</Btn>
+        <CentContainer>
+          <Btn onClick={() => updateCustomer(currentCustomer)}>Update</Btn>
+        </CentContainer>
       </div>
     );
   };
@@ -97,4 +101,4 @@ const ProductDetails = ({ id }) => {
   );
 };
 
-export default ProductDetails;
+export default CustomerDetails;

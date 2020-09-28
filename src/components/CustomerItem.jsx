@@ -11,7 +11,7 @@ const CustomerItem = ({ customer }) => {
         <p>{customer.name}</p>
         <p>{customer.organisationNr ? customer.organisationNr : "N/A"}</p>
         <p>{customer.reference ? customer.reference : "N/A"}</p>
-        <Link to={`/customer/${customer.id}`}>View Details</Link>
+        <StyledLink to={`/customer/${customer.id}`}>View Details</StyledLink>
       </ListItem>
     </>
   );
@@ -19,13 +19,12 @@ const CustomerItem = ({ customer }) => {
 
 export default CustomerItem;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 1em;
-`;
-
 const ListItem = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${(props) => props.theme.text};
 `;

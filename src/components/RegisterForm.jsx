@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserKit from "../data/UserKit";
 import { startCase } from "lodash";
-import { Btn, FormContainer, FormInput } from "../style/Components";
+import { Btn, FormContainer, FormInput, CentContainer } from "../style/Components";
 import FormKit from "../data/FormKit";
 
 const RegisterForm = ({ setRegistered }) => {
@@ -37,7 +37,9 @@ const RegisterForm = ({ setRegistered }) => {
     <FormContainer>
       {errorMsg && <strong>{errorMsg}</strong>}
       {formKit.registerFormData && renderInput()}
-      <Btn onClick={() => handleRegister()}>Register</Btn>
+      <CentContainer>
+        <Btn onClick={() => handleRegister()}>Register</Btn>
+      </CentContainer>
     </FormContainer>
   );
 };

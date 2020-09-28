@@ -1,5 +1,5 @@
 import React from "react";
-import ProductDetails from "../components/ProductDetails";
+import CustomerDetails from "../components/CustomerDetails";
 import { WrapperAlignStart } from "../style/Components";
 
 const CustomerDetailPage = (props) => {
@@ -7,7 +7,7 @@ const CustomerDetailPage = (props) => {
 
   return (
     <WrapperAlignStart>
-      <ProductDetails id={customerId} />
+      <CustomerDetails id={customerId} />
     </WrapperAlignStart>
   );
 };

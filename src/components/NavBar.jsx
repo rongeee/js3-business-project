@@ -10,9 +10,9 @@ const NavBar = ({ children }) => {
   return (
     <div>
       <Header>
-        <Link to="/">
+        <StyledLink to="/">
           <h2>Home</h2>
-        </Link>
+        </StyledLink>
         {currentUser && currentUser.firstName ? (
           <div>
             <small>
@@ -40,4 +40,9 @@ const Header = styled.header`
   position: absolute;
   top: 0;
   width: 100%;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${(props) => props.theme.text};
 `;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import UserKit from "../data/UserKit";
-import { Btn } from "../style/Components";
+import { BtnSecondary } from "../style/Components";
 
 const DeleteCustomerBtn = ({ id }) => {
   const userKit = new UserKit();
@@ -12,7 +12,7 @@ const DeleteCustomerBtn = ({ id }) => {
       history.push("/");
     });
   };
-  return <Btn onClick={() => handleClick()}>Delete</Btn>;
+  return <BtnSecondary onClick={() => handleClick()}>Delete</BtnSecondary>;
 };
 
 export default DeleteCustomerBtn;
