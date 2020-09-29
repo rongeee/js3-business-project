@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const userKit = new UserKit();
@@ -34,8 +35,8 @@ function App() {
         <CustomerContext.Provider value={{ customers, setCustomers }}>
           <NavBar>
             <Switch>
-              <Route path="/customer/:id" component={CustomerDetailPage} />
-              <Route path="/addcustomer" component={AddCustomerPage} />
+              <ProtectedRoute path="/customer/:id" component={CustomerDetailPage} token={token} />
+              <ProtectedRoute path="/addcustomer/" component={AddCustomerPage} token={token} />
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
               {token ? <Route path="/" component={HomePage} /> : <Route path="/" component={FrontPage} />}
